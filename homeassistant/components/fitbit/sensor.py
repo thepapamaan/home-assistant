@@ -77,7 +77,7 @@ FITBIT_RESOURCES_LIST = {
     'body/fat': ['Body Fat', '%', 'human'],
     'body/weight': ['Weight', '', 'human'],
     'devices/battery': ['Battery', None, None],
-    'readonly/heartRate': ['Real-time heart-rate', 'bpm', 'heart-pulse'],
+    'user/heartRate': ['Real-time heart-rate', 'bpm', 'heart-pulse'],
     'sleep/awakeningsCount':
         ['Awakenings Count', 'times awaken', 'sleep'],
     'sleep/efficiency': ['Sleep Efficiency', '%', 'sleep'],
@@ -479,7 +479,7 @@ class FitbitSensor(Entity):
             self._state = response[container][-1]. \
                     get('value').get('restingHeartRate')
 
-        if self.resource_type == 'readonly/heartRate':
+        if self.resource_type == 'user/heartRate':
             self._state = response[container][-1]. \
                     get('value').get('heartRate')
 
